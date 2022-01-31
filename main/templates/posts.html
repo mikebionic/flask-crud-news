@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+
+	<h1>Posts page</h1>
+
+	<hr>
+	<div>
+		<h4>Add Post</h4>
+		<form method="POST" action="" enctype="multipart/form-data">
+			<input name="title" placeholder="title..."/>
+			<input name="body" placeholder="body..."/>
+			<input name="image" type="file" placeholder="title..."/>
+			<button type="submit">add!</button>
+		</form>
+	</div>
+	<hr>
+
+
+	<div>
+		{% for post in posts %}
+			<h4>{{ post.title }}</h4>
+			<p>{{ post.body }}</p>
+			{% if post.image %}
+				<img style="max-height: 80px;" src="/static/{{ post.image }}" />
+			{% endif %}
+			<a href="/update_post/{{post.id}}">Edit</a>
+		{% endfor %}
+	</div>
+
+{% endblock %}

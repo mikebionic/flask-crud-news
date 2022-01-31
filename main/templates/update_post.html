@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+
+	<h1>Posts page</h1>
+
+	<hr>
+	<div>
+		Current post:
+		<h4>{{ post.title }}</h4>
+		<p>{{ post.body }}</p>
+		{% if post.image %}
+			<img style="max-height: 80px;" src="/static/{{ post.image }}" />
+		{% endif %}
+	</div>
+	<div>
+		<h4>Update Post</h4>
+		<form method="POST" action="" enctype="multipart/form-data">
+			<input name="title" placeholder="title..."/>
+			<input name="body" placeholder="body..."/>
+			<input name="image" type="file" />
+			<button type="submit">update!</button>
+		</form>
+	</div>
+	<hr>
+
+{% endblock %}
